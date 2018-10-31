@@ -7,13 +7,19 @@ The application developed in Android Studio with Java. The app downloads the dic
 
 
 Prerequisites
+
 Android API level more than 24. 
+
 Tested with Google Pixel 2.
 
-#Built With
+
+Built With
+
 Android Studio
+
 Java
 
 Author
+
 Bengu Erenler
 
