@@ -1,25 +1,23 @@
 # bontouchDictionary
-Bontouch Dictionary
+This is a simple dictionary application that let's the user search for the existence of a word.
+It offers suggestions of words that start with the string the user has entered.
 
-The project about, the user can enter a word in a search bar,  all words contain a substring of the entered word showing with custom suggestions.
-
-The application developed in Android Studio with Java. The app downloads the dictionary from  http://runeberg.org/words/ss100.txt to the internal storage. Then, app inserts these words to the database SQLite. To make it faster I have added words to the database with batches. To make sure that the main UI thread of the application does not block database operation I have used Asynctask for inserting the retrieved data. While the insertion on progress app showing a dialog to the user to wait. When it finishes, the user can search. For the search, I have implemented a searchable activity and modified the searchable configuration XML and added into android manifest XML. To provide search suggestion,  I have created a content provider and requested suggestions from the content provider. Then, it calls to query, and it returns a cursor pointing to the suggestion from the database. 
-
+The application was developed in Android Studio, with Java. It downloads the dictionary from http://runeberg.org/words/ss100.txt everytime it is opened to maintain an up-to-date version of the dictionary. 
+The user is shown a loading screen and is unable to perform any searches during this update.
+The list of words is stored in an SQLite database and the search for matching words is done using SQL queries.
+Insertions of the words into the database is done in batches and in a single transaction, which significantly increases the performance.
+To provide search suggestions, Android's Search Widget was used and a simple Content Provider was implemented.
+The content provider queries the database to find the matching words whenever the user changes the input by adding or deleting characters.
+Clicking on one of the search suggestions simply reloads the search activity as the dictionary does not provide definitions for the words.
 
 Prerequisites
-
-Android API level more than 24. 
+Android 7.0 Nougat (API level 24).
 
 Tested with Google Pixel 2.
 
-
 Built With
-
-Android Studio
-
-Java
+Android Studio, Java
 
 Author
-
 Bengu Erenler
 
